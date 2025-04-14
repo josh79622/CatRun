@@ -68,10 +68,14 @@ public class CatMovement : MonoBehaviour
         //Debug.Log("collision.contacts:" + collision.contacts[0].normal);
         if (collision.contacts[0].normal.y > 0.5f)
         {
-            Debug.Log("GGGG");
             isGrounded = true;
             return;
         }
+    }
+
+    public bool GetIsGrounded ()
+    {
+        return isGrounded;
     }
 
     //void OnCollisionExit2D(Collision2D collision)

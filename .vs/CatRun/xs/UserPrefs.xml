@@ -1,14 +1,10 @@
 ﻿<Properties StartupConfiguration="{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PoliceMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelSelector.cs">
     <Files>
-      <File FileName="Assets/Scripts/CatMovement.cs" Line="58" Column="46" />
-      <File FileName="Assets/Scripts/ParallaxLayer.cs" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" />
-      <File FileName="Assets/Scripts/TiledBackgroundScroller.cs" Line="19" Column="2" />
-      <File FileName="Assets/Scripts/CatAttack.cs" Line="26" Column="29" />
-      <File FileName="Assets/Scripts/BinManagement.cs" Line="22" Column="38" />
-      <File FileName="Assets/Scripts/CatPlatformDrop.cs" Line="15" Column="34" />
-      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="7" Column="15" />
+      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="71" Column="43" />
+      <File FileName="Assets/Scripts/CatMovement.cs" Line="71" Column="23" />
+      <File FileName="Assets/Scripts/DropControl.cs" Line="12" Column="25" />
+      <File FileName="Assets/Scripts/LevelSelector.cs" Line="30" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +12,7 @@
           <Node name="CatRun" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PoliceMovement.cs" selected="True" />
+                <Node name="LevelSelector.cs" selected="True" />
               </Node>
             </Node>
           </Node>
