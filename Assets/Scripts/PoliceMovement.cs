@@ -7,6 +7,7 @@ public class PoliceMovement : MonoBehaviour
     public GameObject target;
     public float speed = 6;
     public float climbingSpeed = 3.5f;
+    private float speedUp = 1.0f;
     Animator anim;
 
     private Rigidbody2D rb;
@@ -61,7 +62,7 @@ public class PoliceMovement : MonoBehaviour
             {
                 Status = 1;
                 var direction = Mathf.Sign(target.transform.position.x - transform.position.x);
-                rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+                rb.velocity = new Vector2(direction * speed * speedUp, rb.velocity.y);
                 transform.localScale = new Vector3(direction * transform.localScale.z, transform.localScale.y, transform.localScale.z);
             } else
             {
@@ -110,114 +111,20 @@ public class PoliceMovement : MonoBehaviour
     }
 
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (isClimbing)
-    //    {
-    //        rb.velocity = new Vector2(0, climbingSpeed);
-    //    }
-    //    else
-    //    {
-    //        if (Mathf.Abs(target.transform.position.x - transform.position.x) > 1)
-    //        {
-    //            Status = 1;
-    //            var direction = Mathf.Sign(target.transform.position.x - transform.position.x);
-    //            rb.velocity = new Vector2(direction * speed, rb.velocity.y);
-    //            transform.localScale = new Vector3(direction * transform.localScale.z, transform.localScale.y, transform.localScale.z);
-    //        }
-    //    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("!!");
+        if (other.CompareTag("SlowDownBadGuy"))
+        {
+            Debug.Log("SlowDown!!!");
+            speedUp = 0.3f;
+            StartCoroutine(WaitToBackToNormalSpeed());
+        }
+    }
 
-    //    Bounds myBounds = GetComponent<Collider2D>().bounds;
-    //    //Debug.Log("myBounds.min.y: " + myBounds.min.y);
-    //    //Debug.Log("wallBounds.max.y: " + wallBounds.max.y);
-    //    if (hasAWall && isOnTheWall(target, wallBounds))
-    //    {
-    //        isClimbing = true;
-    //    }
-    //    else if (!hasAWall && isOnTheWall(target, wallBounds) && myBounds.min.y <= wallBounds.max.y)
-    //    {
-    //        Debug.Log("STILL!");
-    //        isClimbing = true;
-    //    }
-    //    else if (isUnderTheWall(target, wallBounds))
-    //    {
-    //        dropControl.Drop();
-    //        isClimbing = false;
-    //    }
-    //    else
-    //    {
-    //        isClimbing = false;
-    //    }
-    //}
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-
-    //    Bounds myBounds = GetComponent<Collider2D>().bounds;
-    //    Bounds bounds = collision.collider.bounds;
-
-    //    //if (bounds.Contains(myBounds.center))
-    //    //{
-    //    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
-    //    //    {
-    //    //        if (!isClimbing)
-    //    //        {
-    //    //            hasAWall = true;
-    //    //        }
-    //    //    }
-    //    //}
-
-
-
-
-
-    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Walls") &&
-    //        bounds.Contains(myBounds.center))
-    //    {
-    //        if (!isClimbing)
-    //        {
-    //            wallBounds = bounds;
-    //        }
-
-    //        hasAWall = true;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("No wall");
-    //        hasAWall = false;
-    //    }
-
-
-    //}
-
-    //private bool isOnTheWall(GameObject target, Bounds wallBounds)
-    //{
-    //    Transform tra = target.transform;
-    //    Vector3 position = tra.position;
-    //    if (position.x >= wallBounds.min.x && position.x <= wallBounds.max.x && position.y >= wallBounds.max.y)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    //private bool isUnderTheWall(GameObject target, Bounds wallBounds)
-    //{
-    //    Transform tra = target.transform;
-    //    Vector3 position = tra.position;
-    //    if (position.x >= wallBounds.min.x && position.x <= wallBounds.max.x && position.y < wallBounds.max.y)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
-
-    //private bool isDoneClimbing(Bounds targetBounds, Bounds wallBounds)
-    //{
-    //    if (targetBounds.min.y >= wallBounds.max.y)
-    //    {
-    //        return true;
-    //    }
-    //    return false;
-    //}
+    private IEnumerator WaitToBackToNormalSpeed()
+    {
+        yield return new WaitForSeconds(2f);
+        speedUp = 1f;
+    }
 }

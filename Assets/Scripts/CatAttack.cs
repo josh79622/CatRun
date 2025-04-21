@@ -37,7 +37,7 @@ public class CatAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.K))
         {
             anim.SetTrigger("AttackTrigger");
             Attack();
