@@ -5,8 +5,13 @@ public class SimpleCountdown : MonoBehaviour
 {
     public Text countdownText;       // 設定要顯示的 UI Text（普通 UI Text）
     public GameObject player;        // 玩家物件，先暫時禁用
+    public Text Timer;
+    public GameOverTrigger gameOverTrigger;
+    public GoalTrigger goalTrigger;
 
     private float countdown = 3f;
+    public float TimeLimit = 180.0f;
+    private float starTime;
     private bool countdownFinished = false;
 
     void Start()
@@ -28,10 +33,34 @@ public class SimpleCountdown : MonoBehaviour
             {
                 countdownFinished = true;
                 countdownText.text = "GO!";
+                starTime = Time.time;
                 player.SetActive(true); // 啟用角色
                 Invoke("ClearText", 0.5f); // 0.5 秒後清除文字
             }
         }
+
+        if (countdownFinished && !gameOverTrigger.isLost && !goalTrigger.isWon)
+        {
+            float usedTime = Time.time - starTime;
+            float remainingTime = TimeLimit - usedTime;
+
+            if (remainingTime <= 0)
+            {
+                gameOverTrigger.Lose();
+            }
+            else
+            {
+                int m = Mathf.FloorToInt(remainingTime / 60);
+                int s = Mathf.FloorToInt(remainingTime) - m * 60;
+
+                Timer.text = m.ToString("D2") + ":" + s.ToString("D2");
+            }
+        }
+    }
+
+    void StartTimer ()
+    {
+        Timer.text = "";
     }
 
     void ClearText()
