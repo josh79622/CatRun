@@ -8,9 +8,10 @@ public class GoalTrigger : MonoBehaviour
     public GameObject virtualCamera;        // 虛擬攝影機（讓它停住）
     public Text winText;                    // 顯示 "你贏了！"
     public Text instructionText;            // 顯示 "點擊任意鍵回主選單"
-    public string interfaceSceneName = "Interface";  // 主選單 Scene 名稱
+    private string interfaceSceneName = "Interface";  // 主選單 Scene 名稱
 
-    private bool hasWon = false;
+    public bool isWon { get; private set; } = false;
+    public bool hasWon { get; private set; } = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,6 +31,8 @@ public class GoalTrigger : MonoBehaviour
 
     public void Win ()
     {
+        isWon = true;
+
         GameObject cat = GameObject.FindGameObjectWithTag("Player");
         GameOverTrigger gameOverTrigger = cat.GetComponent<GameOverTrigger>();
         gameOverTrigger.isActive = false;
