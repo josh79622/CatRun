@@ -26,7 +26,7 @@ This project is built with Unity. Please follow the instructions below for prope
 ## 🚀 How to Run
 
 1. Open the project folder using Unity Hub.
-2. Open `Scenes/MainMenu` or `Scenes/Level1` to start playing.
+2. Open `Scenes/Interface` or `Scenes/Tutorial` to start playing.
 3. To build the project, go to `File > Build Settings` and set the target platform to `PC, Mac & Linux Standalone`.
 
 ---
