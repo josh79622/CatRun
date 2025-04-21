@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CatMovement : MonoBehaviour
 {
+    public EnergyBar energy;
+    public float energyCost = 0.05f;
+    public float energyGain = 20f;
     public float translationSpeed = 4.0f;
     public float jumpForce = 5.0f;
     private bool isGrounded;
@@ -26,8 +29,12 @@ public class CatMovement : MonoBehaviour
         var isRunning = false;
         if (horizonValue != 0 && Input.GetKey(KeyCode.LeftShift))
         {
-            isRunning = true;
-            speedUp  = 2.0f;
+            if (energy.currentEnergy > 0)
+            {
+                isRunning = true;
+                speedUp  = 2.0f;
+                energy.UseEnergy(energyCost);
+            }
         }
         
 
@@ -68,10 +75,23 @@ public class CatMovement : MonoBehaviour
         //Debug.Log("collision.contacts:" + collision.contacts[0].normal);
         if (collision.contacts[0].normal.y > 0.5f)
         {
-            Debug.Log("GGGG");
             isGrounded = true;
-            return;
+            //return;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Apple"))
+        {
+            Destroy(other.gameObject);
+            energy.GainEnergy(energyGain);
+        }
+    }
+
+    public bool GetIsGrounded ()
+    {
+        return isGrounded;
     }
 
     //void OnCollisionExit2D(Collision2D collision)

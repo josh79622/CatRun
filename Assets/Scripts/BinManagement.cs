@@ -19,7 +19,7 @@ public class BinManagement : MonoBehaviour
 
     public void Hit()
     {
-        Debug.Log("!!!!! HIT!!!!!!");
         anim.SetTrigger("knock_over");
+        transform.tag = "SlowDownBadGuy";
     }
 }
