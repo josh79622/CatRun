@@ -5,10 +5,11 @@ using UnityEngine;
 public class CatMovement : MonoBehaviour
 {
     public EnergyBar energy;
-    public float energyCost = 0.05f;
+    public float energyCost = 0.1f;
     public float energyGain = 20f;
     public float translationSpeed = 4.0f;
     public float jumpForce = 5.0f;
+    public bool isHiding { get; private set; } = false;
     private bool isGrounded;
     private Rigidbody2D rb;
     private int status = 0;
@@ -27,14 +28,12 @@ public class CatMovement : MonoBehaviour
         var horizonValue = Input.GetAxis("Horizontal");
         var speedUp = 1.0f;
         var isRunning = false;
-        if (horizonValue != 0 && Input.GetKey(KeyCode.LeftShift))
+        if (horizonValue != 0 && Input.GetKey(KeyCode.LeftShift) && energy.currentEnergy >= energyCost)
         {
-            if (energy.currentEnergy > 0)
-            {
-                isRunning = true;
-                speedUp  = 2.0f;
-                energy.UseEnergy(energyCost);
-            }
+            isRunning = true;
+            speedUp  = 2.0f;
+            energy.UseEnergy(energyCost);
+            
         }
         
 
@@ -61,6 +60,11 @@ public class CatMovement : MonoBehaviour
             isRunning = false;
         }
 
+        if (status == 0)
+        {
+            energy.GainEnergy(0.005f);
+        }
+
         anim.SetInteger("Status", status);
         anim.SetBool("IsRunning", isRunning);
 
@@ -68,6 +72,7 @@ public class CatMovement : MonoBehaviour
         {
             anim.SetTrigger("AttackTrigger");
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -94,11 +99,9 @@ public class CatMovement : MonoBehaviour
         return isGrounded;
     }
 
-    //void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    Debug.Log("collision.contacts:" + collision.contacts[0].normal);
-    //    Debug.Log("G????");
-    //        isGrounded = false;
+    public void setHidden (bool value)
+    {
+        isHiding = value;
+    }
 
-    //}
 }

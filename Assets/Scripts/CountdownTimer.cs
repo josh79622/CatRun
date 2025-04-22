@@ -4,11 +4,13 @@ using UnityEngine.UI;
 public class SimpleCountdown : MonoBehaviour
 {
     public Text countdownText;       // 設定要顯示的 UI Text（普通 UI Text）
+    public Canvas guideline;
     public GameObject player;        // 玩家物件，先暫時禁用
     public Text Timer;
     public GameOverTrigger gameOverTrigger;
     public GoalTrigger goalTrigger;
 
+    private bool isGuidelineFinished = false;
     private float countdown = 3f;
     public float TimeLimit = 180.0f;
     private float starTime;
@@ -21,7 +23,13 @@ public class SimpleCountdown : MonoBehaviour
 
     void Update()
     {
-        if (!countdownFinished)
+        if (Input.anyKey && !isGuidelineFinished)
+        {
+            isGuidelineFinished = true;
+            guideline.enabled = false;
+        }
+
+        if (!countdownFinished && isGuidelineFinished)
         {
             countdown -= Time.deltaTime;
 
@@ -56,12 +64,18 @@ public class SimpleCountdown : MonoBehaviour
                 Timer.text = m.ToString("D2") + ":" + s.ToString("D2");
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P) && isGuidelineFinished)
+        {
+            Time.timeScale = Time.timeScale == 0 ? 1.0f : 0f;
+        }
     }
 
-    void StartTimer ()
-    {
-        Timer.text = "";
-    }
+    //void StartTimer ()
+    //{
+    //    Timer.text = "";
+
+    //}
 
     void ClearText()
     {
