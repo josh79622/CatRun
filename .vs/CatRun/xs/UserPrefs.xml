@@ -1,17 +1,19 @@
 ﻿<Properties StartupConfiguration="{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnergyBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PoliceMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="16" Column="28" />
-      <File FileName="Assets/Scripts/DropControl.cs" />
+      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="37" Column="54" />
+      <File FileName="Assets/Scripts/CatMovement.cs" Line="98" Column="1" />
       <File FileName="Assets/Scripts/LevelSelector.cs" />
-      <File FileName="Assets/Scripts/CountdownTimer.cs" Line="6" Column="30" />
-      <File FileName="Assets/Scripts/GoalTrigger.cs" Line="26" Column="42" />
-      <File FileName="Assets/Scripts/BinManagement.cs" Line="23" Column="39" />
-      <File FileName="Assets/Scripts/CatAttack.cs" Line="43" Column="22" />
-      <File FileName="Assets/Scripts/GameOverTrigger.cs" Line="2" Column="1" />
+      <File FileName="Assets/Scripts/CountdownTimer.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/BinManagement.cs" Line="23" Column="42" />
+      <File FileName="Assets/Scripts/CatAttack.cs" Line="6" Column="57" />
+      <File FileName="Assets/Scripts/GoalTrigger.cs" Line="69" Column="44" />
+      <File FileName="Assets/Scripts/GameOverTrigger.cs" Line="53" Column="1" />
       <File FileName="Assets/Scripts/HintManager.cs" Line="22" Column="22" />
-      <File FileName="Assets/Scripts/EnergyBar.cs" Line="16" Column="26" />
-      <File FileName="Assets/Scripts/CatMovement.cs" Line="32" Column="20" />
+      <File FileName="Assets/Scripts/EnergyBar.cs" Line="11" Column="6" />
+      <File FileName="Assets/showHint.cs" Line="13" Column="1" />
+      <File FileName="Assets/HideInGrassManager.cs" Line="37" Column="10" />
+      <File FileName="Assets/followCharacter.cs" Line="17" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +21,7 @@
           <Node name="CatRun" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="EnergyBar.cs" selected="True" />
+                <Node name="PoliceMovement.cs" selected="True" />
               </Node>
             </Node>
           </Node>
