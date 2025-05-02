@@ -27,6 +27,9 @@ public class PoliceMovement : MonoBehaviour
     private CatMovement catMovement;
     private Transform confused;
 
+    private SpriteRenderer spriteRenderer;
+    private Coroutine flashCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,15 +40,26 @@ public class PoliceMovement : MonoBehaviour
         catMovement = target.GetComponent<CatMovement>();
         confused = transform.parent.Find("Confused");
         confused.gameObject.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        if (speedUp < 1)
+        {
+            StartFlash();
+        } else
+        {
+            StopFlash();
+        }
+
+        AvoidOtherPolice();
         if (!isGoingAfter)
         {
             Vector2 diff = target.transform.position - transform.position;
             float distance = diff.magnitude;
-            if (distance < 30)
+            if (distance < 40)
             {
                 isGoingAfter = true;
             }
@@ -65,11 +79,10 @@ public class PoliceMovement : MonoBehaviour
                 Bounds myBounds = this.GetComponent<Collider2D>().bounds;
 
                 if (collidedWall)
-                Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
+                //Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
 
                 if (collidedWall && isOnTheWall(target, collidedWall))
                 {
-                    Debug.Log("CLIMBIN!");
                     if (myBounds.min.y < collidedWall.bounds.max.y)
                     {
                         isClimbing = true;
@@ -118,7 +131,6 @@ public class PoliceMovement : MonoBehaviour
                     )
                 {
                     Status = 3;
-                    Debug.Log("Player is inside the obstacle!");
                     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                     isGrounded = false;
                 }
@@ -170,12 +182,26 @@ public class PoliceMovement : MonoBehaviour
         }
         return false;
     }
+
+    public void SpeedJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * 2, jumpForce);
+        isGrounded = false;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("SlowDownBadGuy"))
         {
             speedUp = 0.3f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "JumpTrigger")
+        {
+            SpeedJump();
         }
     }
 
@@ -208,5 +234,50 @@ public class PoliceMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         speedUp = 1f;
+    }
+
+    void AvoidOtherPolice()
+    {
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, 1f, LayerMask.GetMask("police"));
+
+        foreach (Collider2D other in nearby)
+        {
+            if (other.gameObject != this.gameObject)
+            {
+                Vector2 away = (Vector2)(transform.position - other.transform.position);
+                transform.position += (Vector3)(away.normalized * 0.02f); 
+            }
+        }
+    }
+
+    public void StartFlash()
+    {
+        if (flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashRoutine());
+        }
+    }
+
+    public void StopFlash()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        while (true)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+            yield return new WaitForSeconds(0.2f);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }
