@@ -11,9 +11,17 @@ public class GameOverTrigger : MonoBehaviour
     public bool isActive = true;
     public bool isLost { get; private set; } = false;
     public bool hasLost { get; private set; } = false;
+    public Image[] hearts;
     public Text instructionText;
     private string interfaceSceneName = "Interface";
+    private int lifeNumber;
+    private CatMovement catMovement;
 
+    private void Start()
+    {
+        lifeNumber = hearts.Length;
+        catMovement = transform.GetComponent<CatMovement>();
+    }
     private void Update()
     {
         if (hasLost && Input.anyKeyDown)
@@ -26,7 +34,20 @@ public class GameOverTrigger : MonoBehaviour
     {
         if (collision.collider.tag == "BadGuy")
         {
-            Lose();
+            if (!catMovement.isDead)
+            {
+                if (lifeNumber > 0)
+                {
+                    Image heart = hearts[lifeNumber - 1];
+                    heart.color = new Color(0, 0, 0, 0.5f);
+                    catMovement.Die();
+                    lifeNumber -= 1;
+                }
+                else
+                {
+                    Lose();
+                }
+            }
         }
     }
     public void Lose()

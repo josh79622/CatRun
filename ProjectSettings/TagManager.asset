@@ -7,6 +7,8 @@ TagManager:
   - BadGuy
   - Apple
   - SlowDownBadGuy
+  - JumpTrigger
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - cat
   - people
   - blockWalls
-  - 
-  - 
+  - police
+  - catGhost
   - 
   - 
   - 
