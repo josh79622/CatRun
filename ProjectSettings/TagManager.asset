@@ -9,6 +9,9 @@ TagManager:
   - SlowDownBadGuy
   - JumpTrigger
   - Coin
+  - Eagle
+  - Water
+  - fallingWater
   layers:
   - Default
   - TransparentFX

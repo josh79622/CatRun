@@ -9,11 +9,15 @@ public class CatMovement : MonoBehaviour
     public float energyCost = 1f;
     public float energyGain = 20f;
     public float translationSpeed = 4.0f;
+    public float normalGravity = 3f;
+    public float waterGravity = 1f;
     public float jumpForce = 5.0f;
+    private float originalJumpForce;
     public bool isHiding { get; private set; } = false;
 
 
     public bool isDead { get; private set; } = false;
+    private bool isUnderWater = false;
     private bool isGrounded;
     private Rigidbody2D rb;
     private int status = 0;
@@ -28,6 +32,7 @@ public class CatMovement : MonoBehaviour
         anim = this.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalJumpForce = jumpForce;
     }
 
     // Update is called once per frame
@@ -50,6 +55,11 @@ public class CatMovement : MonoBehaviour
             energy.UseEnergy(energyCost);
             
         }
+
+        if (isUnderWater)
+        {
+            speedUp = 0.5f;
+        }
         
 
         float translation = horizonValue * translationSpeed * speedUp;
@@ -62,7 +72,7 @@ public class CatMovement : MonoBehaviour
         rb.velocity = new Vector2(translation, rb.velocity.y);
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isUnderWater))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //anim.SetTrigger("Jump");
@@ -91,19 +101,51 @@ public class CatMovement : MonoBehaviour
                 anim.SetTrigger("AttackTrigger");
             }
         }
+
+        //Debug.Log("isGrounded: " + isGrounded);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("collision.contacts:" + collision.contacts[0].normal);
-        if (collision.contacts[0].normal.y > 0.5f)
+        ////Debug.Log("collision.contacts:" + collision.contacts[0].normal);
+        //if (collision.contacts[0].normal.y > 0.5f)
+        //{
+        //    isGrounded = true;
+        //    //return;
+        //}
+        Debug.Log("Collision!");
+        foreach (ContactPoint2D contact in collision.contacts)
         {
-            isGrounded = true;
-            //return;
+            Vector2 normal = contact.normal;
+
+            // 如果法線向上，代表貓咪在對方上面（踩在上面）
+            if (normal.y > 0.5f)
+            {
+                isGrounded = true;
+            }
         }
     }
 
-    
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!isGrounded)
+        {
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Vector2 normal = contact.normal;
+
+                // 貓咪可以踢牆跳
+                if (Mathf.Abs(normal.x) > 0.9f)
+                {
+                    isGrounded = true;
+                    //return;
+                }
+            }
+        }
+        
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -111,6 +153,49 @@ public class CatMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             energy.GainEnergy(energyGain);
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("進入水中");
+
+            isUnderWater = true;
+
+            rb.drag = 100f;
+            rb.gravityScale = waterGravity;
+            jumpForce = originalJumpForce * 0.2f;
+            // 可以改變移動速度、動畫等等
+        }
+
+        if (other.gameObject.CompareTag("fallingWater"))
+        {
+            rb.gravityScale = normalGravity * 1.5f;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water") && rb.drag > 1f)
+        {
+            rb.drag = 0.8f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("離開水中");
+
+            isUnderWater = false;
+
+            rb.drag = 0;
+            rb.gravityScale = normalGravity;
+            jumpForce = originalJumpForce;
+        }
+        if (other.gameObject.CompareTag("fallingWater"))
+        {
+            rb.gravityScale = waterGravity;
         }
     }
 
