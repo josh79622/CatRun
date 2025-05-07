@@ -1,23 +1,26 @@
 ﻿<Properties StartupConfiguration="{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PoliceMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EagleCarrier.cs">
     <Files>
-      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="90" Column="59" />
-      <File FileName="Assets/Scripts/CatMovement.cs" Line="37" Column="30" />
+      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="90" Column="25" />
+      <File FileName="Assets/Scripts/CatMovement.cs" />
       <File FileName="Assets/Scripts/LevelSelector.cs" />
-      <File FileName="Assets/Scripts/CountdownTimer.cs" Line="21" Column="41" />
-      <File FileName="Assets/Scripts/BinManagement.cs" Line="26" Column="13" />
+      <File FileName="Assets/Scripts/CountdownTimer.cs" />
+      <File FileName="Assets/Scripts/BinManagement.cs" />
       <File FileName="Assets/Scripts/CatAttack.cs" />
       <File FileName="Assets/Scripts/GoalTrigger.cs" />
-      <File FileName="Assets/Scripts/GameOverTrigger.cs" Line="53" Column="1" />
-      <File FileName="Assets/Scripts/HintManager.cs" Line="22" Column="22" />
+      <File FileName="Assets/Scripts/GameOverTrigger.cs" />
+      <File FileName="Assets/Scripts/HintManager.cs" />
       <File FileName="Assets/Scripts/EnergyBar.cs" />
-      <File FileName="Assets/showHint.cs" Line="7" Column="24" />
-      <File FileName="Assets/HideInGrassManager.cs" Line="37" Column="10" />
+      <File FileName="Assets/showHint.cs" />
+      <File FileName="Assets/HideInGrassManager.cs" />
       <File FileName="Assets/followCharacter.cs" />
       <File FileName="Assets/Scripts/DropControl.cs" />
-      <File FileName="Assets/Scripts/EatCoin.cs" Line="88" Column="8" />
-      <File FileName="Assets/Scripts/PoliceShowUpTrigger.cs" Line="20" Column="27" />
-      <File FileName="Assets/Scripts/ParallaxLayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EatCoin.cs" />
+      <File FileName="Assets/Scripts/PoliceShowUpTrigger.cs" />
+      <File FileName="Assets/Scripts/ParallaxLayer.cs" />
+      <File FileName="Assets/Scripts/PingPongMover.cs" Line="38" Column="56" />
+      <File FileName="Assets/Scripts/CatRider.cs" Line="7" Column="34" />
+      <File FileName="Assets/Scripts/EagleCarrier.cs" Line="24" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,7 +28,7 @@
           <Node name="CatRun" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PoliceMovement.cs" selected="True" />
+                <Node name="EagleCarrier.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -35,7 +38,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e5dd675d-b7a3-4e8b-b18d-733f92416373" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b500b9ec-e9df-4a5e-9f79-a7a6b6000b79" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -24,7 +24,7 @@ public class SimpleCountdown : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || (Time.timeScale == 0 && Input.GetMouseButtonDown(0)))
         {
             Time.timeScale = Time.timeScale == 0 ? 1.0f : 0f;
         }
