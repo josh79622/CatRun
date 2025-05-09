@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EagleCarrier.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="90" Column="25" />
-      <File FileName="Assets/Scripts/CatMovement.cs" />
+      <File FileName="Assets/Scripts/CatMovement.cs" Line="184" Column="51" IsPinned="True" />
+      <File FileName="Assets/Scripts/PoliceMovement.cs" Line="222" Column="56" />
       <File FileName="Assets/Scripts/LevelSelector.cs" />
-      <File FileName="Assets/Scripts/CountdownTimer.cs" />
-      <File FileName="Assets/Scripts/BinManagement.cs" />
-      <File FileName="Assets/Scripts/CatAttack.cs" />
+      <File FileName="Assets/Scripts/CountdownTimer.cs" Line="9" Column="20" />
+      <File FileName="Assets/Scripts/BinManagement.cs" Line="45" Column="43" />
+      <File FileName="Assets/Scripts/CatAttack.cs" Line="40" Column="40" />
       <File FileName="Assets/Scripts/GoalTrigger.cs" />
       <File FileName="Assets/Scripts/GameOverTrigger.cs" />
       <File FileName="Assets/Scripts/HintManager.cs" />
@@ -15,7 +15,7 @@
       <File FileName="Assets/HideInGrassManager.cs" />
       <File FileName="Assets/followCharacter.cs" />
       <File FileName="Assets/Scripts/DropControl.cs" />
-      <File FileName="Assets/Scripts/EatCoin.cs" />
+      <File FileName="Assets/Scripts/EatCoin.cs" Line="31" Column="10" />
       <File FileName="Assets/Scripts/PoliceShowUpTrigger.cs" />
       <File FileName="Assets/Scripts/ParallaxLayer.cs" />
       <File FileName="Assets/Scripts/PingPongMover.cs" Line="38" Column="56" />
@@ -28,7 +28,7 @@
           <Node name="CatRun" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="EagleCarrier.cs" selected="True" />
+                <Node name="PoliceMovement.cs" selected="True" />
               </Node>
             </Node>
           </Node>

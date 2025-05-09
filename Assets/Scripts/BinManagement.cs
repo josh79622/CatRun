@@ -10,13 +10,13 @@ public class BinManagement : MonoBehaviour
     private PoliceShowUpTrigger policeShowUpTrigger;
     public GameObject stopWall;
 
-    public GameObject hiddenApple;
+    public GameObject hiddenItem;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         policeShowUpTrigger = GetComponent<PoliceShowUpTrigger>();
-        hiddenApple.SetActive(false);
+        hiddenItem.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,9 +40,9 @@ public class BinManagement : MonoBehaviour
         {
             stopWall.SetActive(false);
         }
-        if (hiddenApple)
+        if (hiddenItem)
         {
-            Invoke("showHiddenApple", 1.15f);
+            Invoke("showHiddenItem", 1.15f);
         }
 
         anim.SetTrigger("knock_over");
@@ -50,8 +50,8 @@ public class BinManagement : MonoBehaviour
         isKnocked = true;
     }
 
-    void showHiddenApple ()
+    void showHiddenItem ()
     {
-        hiddenApple.SetActive(true);
+        hiddenItem.SetActive(true);
     }
 }
