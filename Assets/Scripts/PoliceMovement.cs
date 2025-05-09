@@ -7,10 +7,12 @@ public class PoliceMovement : MonoBehaviour
     public GameObject target;
     public float speed = 6;
     public float climbingSpeed = 3.5f;
+
+    public Collider2D patrolArea;
     private float speedUp = 1.0f;
     Animator anim;
 
-    private float jumpForce = 15.0f;
+    public float jumpForce = 15.0f;
     private bool isGrounded;
 
     private Rigidbody2D rb;
@@ -46,6 +48,13 @@ public class PoliceMovement : MonoBehaviour
 
     private void Update()
     {
+        if (patrolArea && !isTargetInPatrolArea())
+        {
+            rb.velocity = new Vector2(0, 0);
+            anim.SetInteger("Status", 0);
+            return;
+        }
+
         if (speedUp < 1)
         {
             StartFlash();
@@ -188,6 +197,12 @@ public class PoliceMovement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x * 2, jumpForce);
         isGrounded = false;
     }
+
+    public void HighJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * 0.5f, jumpForce * 1.2f);
+        isGrounded = false;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -202,6 +217,11 @@ public class PoliceMovement : MonoBehaviour
         if (collision.transform.tag == "JumpTrigger")
         {
             SpeedJump();
+        }
+
+        if (collision.transform.tag == "HighJumpTrigger")
+        {
+            HighJump();
         }
     }
 
@@ -279,5 +299,12 @@ public class PoliceMovement : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    private bool isTargetInPatrolArea ()
+    {
+        Vector3 targetPos = target.transform.position;
+
+        return patrolArea.bounds.Contains(targetPos);
     }
 }

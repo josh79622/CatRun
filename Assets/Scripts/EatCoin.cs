@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class EatCoin : MonoBehaviour
 {
     public Tilemap coinTilemap; // 把金幣的Tilemap拖進來
     public TileBase coinTile;
     public AudioClip collectSound;
+    public Text coinCounter; 
     private AudioSource audioSource;
 
     private Collider2D myCollider;
     private CatMovement catMovement;
+
+    public int remainingCoins { get; private set; } = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,12 @@ public class EatCoin : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         myCollider = GetComponent<Collider2D>();
         catMovement = GetComponent<CatMovement>();
+
+        remainingCoins = CountRemainingCoins();
+        if (coinCounter)
+        {
+            coinCounter.text = remainingCoins + " coins remaining.";
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +38,11 @@ public class EatCoin : MonoBehaviour
         //{
             //eatCoin();
         //}
+
+        if (coinCounter)
+        {
+            coinCounter.text = remainingCoins + " coins remaining.";
+        }
     }
 
     //void eatCoin()
@@ -91,7 +106,29 @@ public class EatCoin : MonoBehaviour
                 {
                     audioSource.PlayOneShot(collectSound);
                 }
+
+                remainingCoins -= 1;
             }
         }
+    }
+
+    int CountRemainingCoins()
+    {
+        int count = 0;
+
+        // 取得 tilemap 的有效範圍
+        BoundsInt bounds = coinTilemap.cellBounds;
+
+        // 遍歷範圍內所有格子
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            TileBase tile = coinTilemap.GetTile(pos);
+            if (tile == coinTile)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 }

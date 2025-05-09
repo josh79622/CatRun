@@ -45,6 +45,7 @@ public class CatMovement : MonoBehaviour
         if (isDead)
         {
             status = -1;
+            isRunning = false;
             speedUp = 0.6f;
             energy.GainEnergy(1f);
         }
@@ -92,10 +93,9 @@ public class CatMovement : MonoBehaviour
 
 
         anim.SetInteger("Status", isDead ? -1 : status);
+        anim.SetBool("IsRunning", isRunning);
         if (!isDead)
         {
-            anim.SetBool("IsRunning", isRunning);
-
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetTrigger("AttackTrigger");
@@ -149,10 +149,17 @@ public class CatMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Apple"))
+        if (other.CompareTag("Apple") && !isDead)
         {
             Destroy(other.gameObject);
             energy.GainEnergy(energyGain);
+        }
+
+        if (other.CompareTag("extraLife") && !isDead)
+        {
+            Destroy(other.gameObject);
+            GameOverTrigger got = GetComponent<GameOverTrigger>();
+            got.AddHeart();
         }
 
         if (other.gameObject.CompareTag("Water"))
@@ -253,7 +260,7 @@ public class CatMovement : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
             yield return new WaitForSeconds(0.1f);
 
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.4f);
             yield return new WaitForSeconds(0.1f);
         }
     }
