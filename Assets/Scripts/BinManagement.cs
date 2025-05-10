@@ -16,7 +16,10 @@ public class BinManagement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         policeShowUpTrigger = GetComponent<PoliceShowUpTrigger>();
-        hiddenItem.SetActive(false);
+        if (hiddenItem)
+        {
+            hiddenItem.SetActive(false);
+        }
     }
 
     // Update is called once per frame
