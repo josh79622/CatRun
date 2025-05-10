@@ -10,7 +10,6 @@ public class SimpleCountdown : MonoBehaviour
     public GameOverTrigger gameOverTrigger;
     public GoalTrigger goalTrigger;
 
-    private bool isGuidelineFinished = false;
     private float countdown = 3f;
     public float TimeLimit = 180.0f;
     private float starTime;
@@ -19,17 +18,27 @@ public class SimpleCountdown : MonoBehaviour
     void Start()
     {
         player.SetActive(false); // 禁用角色
+        //CloseGuideline();
+        Time.timeScale = 0f;
     }
 
     void Update()
     {
-        if (Input.anyKey && !isGuidelineFinished)
+        if (Input.GetKeyDown(KeyCode.Escape) || (Time.timeScale == 0 && Input.GetMouseButtonDown(0)))
         {
-            isGuidelineFinished = true;
-            guideline.enabled = false;
+            Time.timeScale = Time.timeScale == 0 ? 1.0f : 0f;
         }
 
-        if (!countdownFinished && isGuidelineFinished)
+        if (Time.timeScale == 0)
+        {
+            OpenGuideline();
+        }
+        else
+        {
+            CloseGuideline();
+        }
+
+        if (!countdownFinished)
         {
             countdown -= Time.deltaTime;
 
@@ -65,17 +74,17 @@ public class SimpleCountdown : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && isGuidelineFinished)
-        {
-            Time.timeScale = Time.timeScale == 0 ? 1.0f : 0f;
-        }
     }
 
-    //void StartTimer ()
-    //{
-    //    Timer.text = "";
+    void CloseGuideline()
+    {
+        guideline.enabled = false;
+    }
 
-    //}
+    void OpenGuideline()
+    {
+        guideline.enabled = true;
+    }
 
     void ClearText()
     {

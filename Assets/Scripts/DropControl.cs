@@ -19,7 +19,6 @@ public class DropControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S) && transform.tag == "Player")
         {
-            Debug.Log("platformLayer: " + platformLayer);
             Drop();
         }
     }
@@ -36,7 +35,9 @@ public class DropControl : MonoBehaviour
 
     private System.Collections.IEnumerator TemporarilyDisableCollision(Collider2D platform)
     {
-        Collider2D myCollider = GetComponent<Collider2D>();
+        Debug.Log("????!!!!");
+        Collider2D myCollider = this.GetComponent<Collider2D>();
+
         Physics2D.IgnoreCollision(myCollider, platform, true);
         yield return new WaitForSeconds(dropDuration);
         Physics2D.IgnoreCollision(myCollider, platform, false);

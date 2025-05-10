@@ -8,6 +8,8 @@ public class GoalTrigger : MonoBehaviour
     public GameObject virtualCamera;        // 虛擬攝影機（讓它停住）
     public Text winText;                    // 顯示 "你贏了！"
     public Text instructionText;            // 顯示 "點擊任意鍵回主選單"
+    public int Level = 0;
+    private EatCoin eatCoin;
     private string interfaceSceneName = "Interface";  // 主選單 Scene 名稱
 
     public bool isWon { get; private set; } = false;
@@ -17,6 +19,14 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (Level == 1)
+            {
+                eatCoin = other.transform.GetComponent<EatCoin>();
+                if (eatCoin.remainingCoins != 0)
+                {
+                    return;
+                }
+            }
             Win();
         }
     }

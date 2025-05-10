@@ -7,6 +7,15 @@ TagManager:
   - BadGuy
   - Apple
   - SlowDownBadGuy
+  - JumpTrigger
+  - Coin
+  - Eagle
+  - Water
+  - fallingWater
+  - HighJumpTrigger
+  - FallingDeathLine
+  - FallingDeathBackPoint
+  - extraLife
   layers:
   - Default
   - TransparentFX
@@ -19,8 +28,8 @@ TagManager:
   - cat
   - people
   - blockWalls
-  - 
-  - 
+  - police
+  - catGhost
   - 
   - 
   - 
