@@ -1010,7 +1010,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: X coins remaining
+  m_Text: 
 --- !u!222 &165998495
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74501,9 +74501,9 @@ RectTransform:
   - {fileID: 543431917}
   m_Father: {fileID: 1250714761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473360900
@@ -74785,7 +74785,7 @@ MonoBehaviour:
   Timer: {fileID: 1696785225}
   gameOverTrigger: {fileID: 1340030797}
   goalTrigger: {fileID: 1937533575}
-  TimeLimit: 180
+  TimeLimit: 300
 --- !u!4 &1527633435
 Transform:
   m_ObjectHideFlags: 0
@@ -76801,7 +76801,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3:00
+  m_Text: 
 --- !u!222 &1696785226
 CanvasRenderer:
   m_ObjectHideFlags: 0
