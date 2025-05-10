@@ -3,15 +3,11 @@
   "WorkspaceRootPath": "D:\\CatRun\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|D:\\CatRun\\assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|d:\\catrun\\assets\\scripts\\serwer\\whelll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\serwer\\whelll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|d:\\catrun\\assets\\scripts\\serwer\\gamemanagersewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\serwer\\gamemanagersewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|D:\\CatRun\\assets\\scripts\\serwer\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|d:\\catrun\\assets\\scripts\\serwer\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\serwer\\key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,12 +15,12 @@
       "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\serwer\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|d:\\catrun\\assets\\scripts\\serwer\\whelll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\serwer\\whelll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|D:\\CatRun\\assets\\scripts\\dropcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dropcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|D:\\CatRun\\assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6008E5D8-AF02-5BA1-ABA5-EAD8934CC616}|Assembly-CSharp.csproj|D:\\CatRun\\assets\\scripts\\serwer\\rotateobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,63 +34,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GameManagerSewer.cs",
-              "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\Serwer\\GameManagerSewer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Serwer\\GameManagerSewer.cs",
-              "ToolTip": "D:\\CatRun\\Assets\\Scripts\\Serwer\\GameManagerSewer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Serwer\\GameManagerSewer.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAswEMAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T16:16:50.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Key.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Key.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Serwer\\Key.cs",
               "ToolTip": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Key.cs",
               "RelativeToolTip": "Assets\\Scripts\\Serwer\\Key.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T16:07:40.966Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Whelll.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Whelll.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Serwer\\Whelll.cs",
               "ToolTip": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Whelll.cs",
               "RelativeToolTip": "Assets\\Scripts\\Serwer\\Whelll.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBwAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T15:57:40.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Fish.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Fish.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Serwer\\Fish.cs",
               "ToolTip": "D:\\CatRun\\Assets\\Scripts\\Serwer\\Fish.cs",
               "RelativeToolTip": "Assets\\Scripts\\Serwer\\Fish.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAwB8AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T15:38:54.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "DropControl.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\DropControl.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DropControl.cs",
@@ -102,12 +85,11 @@
               "RelativeToolTip": "Assets\\Scripts\\DropControl.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T15:36:29.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T15:36:29.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "RotateObject.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\Serwer\\RotateObject.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Serwer\\RotateObject.cs",
@@ -115,21 +97,19 @@
               "RelativeToolTip": "Assets\\Scripts\\Serwer\\RotateObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T15:13:54.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T15:13:54.081Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "CatMovement.cs",
               "DocumentMoniker": "D:\\CatRun\\Assets\\Scripts\\CatMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CatMovement.cs",
               "ToolTip": "D:\\CatRun\\Assets\\Scripts\\CatMovement.cs",
               "RelativeToolTip": "Assets\\Scripts\\CatMovement.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAwHMAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAUwAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T13:34:48.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T13:34:48.543Z"
             }
           ]
         }

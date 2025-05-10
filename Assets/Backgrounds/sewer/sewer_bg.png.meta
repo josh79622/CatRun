@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sewer_bg_0: 9106356437508558498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
