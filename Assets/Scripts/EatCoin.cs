@@ -88,8 +88,38 @@ public class EatCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Coin on trigger");
         if (!catMovement.isDead)
         {
+            Debug.Log("cat is not dead");
+            Vector2 contactPoint = other.ClosestPoint(transform.position);
+
+            Debug.Log("觸發接觸點：" + contactPoint);
+            Debug.Log("transform.position：" + transform.position);
+
+            Vector3Int tilePosition = coinTilemap.WorldToCell(new Vector3(contactPoint.x, contactPoint.y, transform.position.z));
+            TileBase tile = coinTilemap.GetTile(tilePosition);
+
+            if (tile == coinTile)
+            {
+                coinTilemap.SetTile(tilePosition, null);
+
+                if (audioSource != null && collectSound != null)
+                {
+                    audioSource.PlayOneShot(collectSound);
+                }
+
+                remainingCoins -= 1;
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Coin on trigger");
+        if (!catMovement.isDead)
+        {
+            Debug.Log("cat is not dead");
             Vector2 contactPoint = other.ClosestPoint(transform.position);
 
             Debug.Log("觸發接觸點：" + contactPoint);

@@ -194,7 +194,7 @@ public class PoliceMovement : MonoBehaviour
 
     public void SpeedJump()
     {
-        rb.velocity = new Vector2(rb.velocity.x * 2, jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x / Mathf.Abs(rb.velocity.x) * 12f, jumpForce * 1.2f);
         isGrounded = false;
     }
 
