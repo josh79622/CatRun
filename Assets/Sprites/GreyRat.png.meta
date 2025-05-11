@@ -191,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GreyRat_0: -500117810326424771
+      GreyRat_1: 1077038512920064750
+      GreyRat_2: 3285614712932840868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
