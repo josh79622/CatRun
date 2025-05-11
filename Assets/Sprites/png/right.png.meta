@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: bef8a8ec06f3340f5b620d980993b398
+guid: c30ccc03dccce1145913d41798ee4ce0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -500117810326424771
-    second: GreyRat_0
+      213: -4345969612696422427
+    second: right_0
   - first:
-      213: 1077038512920064750
-    second: GreyRat_1
+      213: 6507350358835803604
+    second: right_1
   - first:
-      213: 3285614712932840868
-    second: GreyRat_2
+      213: -5790000775740618815
+    second: right_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -90,7 +90,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -103,7 +103,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreyRat_0
+      name: right_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 383
-        width: 322
-        height: 178
+        x: 8
+        y: 37
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d33b5a150893f09f0800000000000000
-      internalID: -500117810326424771
+      spriteID: 5e77696c9a300b3c0800000000000000
+      internalID: -4345969612696422427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreyRat_1
+      name: right_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 1005
-        height: 1019
+        x: 40
+        y: 37
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee2f30432d862fe00800000000000000
-      internalID: 1077038512920064750
+      spriteID: 4d53b678ca0ce4a50800000000000000
+      internalID: 6507350358835803604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreyRat_2
+      name: right_2
       rect:
         serializedVersion: 2
-        x: 359
-        y: 383
-        width: 338
-        height: 178
+        x: 8
+        y: 5
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a5b8296c29d89d20800000000000000
-      internalID: 3285614712932840868
+      spriteID: 1c78eb0a8f8c5afa0800000000000000
+      internalID: -5790000775740618815
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      GreyRat_0: -500117810326424771
-      GreyRat_1: 1077038512920064750
-      GreyRat_2: 3285614712932840868
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

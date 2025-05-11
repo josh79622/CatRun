@@ -7,6 +7,11 @@ TagManager:
   - BadGuy
   - Apple
   - SlowDownBadGuy
+  - MoveCar
+  - UpPower
+  - Hole
+  - AttackItem
+  - Attack
   layers:
   - Default
   - TransparentFX

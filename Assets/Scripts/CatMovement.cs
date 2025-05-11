@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CatMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class CatMovement : MonoBehaviour
     public float jumpForce = 5.0f;
     public bool isHiding { get; private set; } = false;
     private bool isGrounded;
+    public bool isAllowDoubleJump = false;
+    private bool canDoubleJump = false;
     private Rigidbody2D rb;
     private int status = 0;
     Animator anim;
@@ -47,11 +50,20 @@ public class CatMovement : MonoBehaviour
         rb.velocity = new Vector2(translation, rb.velocity.y);
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            //anim.SetTrigger("Jump");
-            isGrounded = false;
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                isGrounded = false;
+                if (isAllowDoubleJump)
+                    canDoubleJump = true;
+            }
+            else if (isAllowDoubleJump && canDoubleJump)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                canDoubleJump = false;
+            }
         }
         if (!isGrounded)
         {
