@@ -8,6 +8,7 @@ public class CatAttack : MonoBehaviour
 
     private Animator anim;
 
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,8 +24,9 @@ public class CatAttack : MonoBehaviour
 
             if (hit.TryGetComponent<BinManagement>(out BinManagement obj))
             {
-                Debug.Log("有");
-                obj.Hit();
+
+                    Debug.Log("有");
+                    obj.Hit();
             }
         }
     }
@@ -43,4 +45,5 @@ public class CatAttack : MonoBehaviour
             Attack();
         }
     }
+    
 }

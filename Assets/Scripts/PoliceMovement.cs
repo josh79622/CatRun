@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PoliceMovement : MonoBehaviour
 {
-    public GameObject target;
+
+    private GameObject target;
     public float speed = 6;
     public float climbingSpeed = 3.5f;
     private float speedUp = 1.0f;
@@ -27,6 +28,9 @@ public class PoliceMovement : MonoBehaviour
     private CatMovement catMovement;
     private Transform confused;
 
+    private SpriteRenderer spriteRenderer;
+    private Coroutine flashCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,23 +41,38 @@ public class PoliceMovement : MonoBehaviour
         catMovement = target.GetComponent<CatMovement>();
         confused = transform.parent.Find("Confused");
         confused.gameObject.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        // 处理闪烁效果
+        if (speedUp < 1)
+        {
+            StartFlash();
+        } else
+        {
+            StopFlash();
+        }
+        // 避免与其他警察重叠
+        AvoidOtherPolice();
+        // 判断是否开始追踪玩家
         if (!isGoingAfter)
         {
             Vector2 diff = target.transform.position - transform.position;
             float distance = diff.magnitude;
-            if (distance < 30)
+            if (distance < 40)
             {
                 isGoingAfter = true;
             }
         }
+        // 主要行为逻辑
         if (isGoingAfter)
         {
             if (catMovement.isHiding)
             {
+                // 玩家隐藏时的行为
                 confused.gameObject.SetActive(true);
 
                 rb.velocity = new Vector2(0, 0);
@@ -65,11 +84,10 @@ public class PoliceMovement : MonoBehaviour
                 Bounds myBounds = this.GetComponent<Collider2D>().bounds;
 
                 if (collidedWall)
-                Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
-
+                //Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
+                 // 墙检测逻辑
                 if (collidedWall && isOnTheWall(target, collidedWall))
                 {
-                    Debug.Log("CLIMBIN!");
                     if (myBounds.min.y < collidedWall.bounds.max.y)
                     {
                         isClimbing = true;
@@ -83,12 +101,13 @@ public class PoliceMovement : MonoBehaviour
                 {
                     isClimbing = false;
                 }
-
+                // 攀爬行为
                 if (isClimbing)
                 {
                     Status = 2;
                     rb.velocity = new Vector2(0, climbingSpeed);
                 }
+                // 地面行为
                 else if (isGrounded)
                 {
                     if (transform.position.y - target.transform.position.y > 2)
@@ -107,7 +126,7 @@ public class PoliceMovement : MonoBehaviour
                         Status = 0;
                     }
                 }
-
+                // 跳跃行为
                 Vector2 pos = transform.position;
                 Collider2D obstacle = Physics2D.OverlapPoint(pos, LayerMask.GetMask("blockWalls"));
 
@@ -118,7 +137,6 @@ public class PoliceMovement : MonoBehaviour
                     )
                 {
                     Status = 3;
-                    Debug.Log("Player is inside the obstacle!");
                     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                     isGrounded = false;
                 }
@@ -158,7 +176,7 @@ public class PoliceMovement : MonoBehaviour
             collidedWall = null;
         }
     }
-
+    // 墙检测辅助方法
     private bool isOnTheWall(GameObject target, Collider2D wall)
     {
         Transform tra = target.transform;
@@ -170,12 +188,27 @@ public class PoliceMovement : MonoBehaviour
         }
         return false;
     }
+    // 跳跃方法
+    public void SpeedJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * 2, jumpForce);
+        isGrounded = false;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("SlowDownBadGuy"))
         {
             speedUp = 0.3f;
+            Debug.Log("0.3");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "JumpTrigger")
+        {
+            SpeedJump();
         }
     }
 
@@ -208,5 +241,51 @@ public class PoliceMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         speedUp = 1f;
+    }
+    // 避免重叠方法
+    void AvoidOtherPolice()
+    {
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, 1f, LayerMask.GetMask("police"));
+
+        foreach (Collider2D other in nearby)
+        {
+            if (other.gameObject != this.gameObject)
+            {
+                Vector2 away = (Vector2)(transform.position - other.transform.position);
+                transform.position += (Vector3)(away.normalized * 0.02f); 
+            }
+        }
+    }
+
+    //闪烁效果方法
+    public void StartFlash()
+    {
+        if (flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashRoutine());
+        }
+    }
+
+    public void StopFlash()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        while (true)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+            yield return new WaitForSeconds(0.2f);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }

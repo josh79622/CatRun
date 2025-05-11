@@ -1,24 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CatMovement : MonoBehaviour
 {
     public EnergyBar energy;
-    public float energyCost = 0.1f;
+    public float energyCost = 1f;
     public float energyGain = 20f;
     public float translationSpeed = 4.0f;
     public float jumpForce = 5.0f;
     public bool isHiding { get; private set; } = false;
+
+
+    public bool isDead { get; private set; } = false;
     private bool isGrounded;
     private Rigidbody2D rb;
     private int status = 0;
     Animator anim;
+
+    private SpriteRenderer spriteRenderer;
+    private Coroutine flashCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = this.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,7 +37,13 @@ public class CatMovement : MonoBehaviour
         var horizonValue = Input.GetAxis("Horizontal");
         var speedUp = 1.0f;
         var isRunning = false;
-        if (horizonValue != 0 && Input.GetKey(KeyCode.LeftShift) && energy.currentEnergy >= energyCost)
+        if (isDead)
+        {
+            status = -1;
+            speedUp = 0.6f;
+            energy.GainEnergy(1f);
+        }
+        else if (horizonValue != 0 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && energy.currentEnergy >= energyCost)
         {
             isRunning = true;
             speedUp  = 2.0f;
@@ -62,17 +77,20 @@ public class CatMovement : MonoBehaviour
 
         if (status == 0)
         {
-            energy.GainEnergy(0.005f);
+            energy.GainEnergy(0.02f);
         }
 
-        anim.SetInteger("Status", status);
-        anim.SetBool("IsRunning", isRunning);
 
-        if (Input.GetMouseButtonDown(0))
+        anim.SetInteger("Status", isDead ? -1 : status);
+        if (!isDead)
         {
-            anim.SetTrigger("AttackTrigger");
-        }
+            anim.SetBool("IsRunning", isRunning);
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetTrigger("AttackTrigger");
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -84,6 +102,8 @@ public class CatMovement : MonoBehaviour
             //return;
         }
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -104,4 +124,52 @@ public class CatMovement : MonoBehaviour
         isHiding = value;
     }
 
+    public void Die ()
+    {
+        anim.SetTrigger("IsDead");
+        isDead = true;
+        setHidden(true);
+        gameObject.layer = LayerMask.NameToLayer("catGhost");
+        Invoke("reLife", 5f);
+        Invoke("StartFlash", 3f);
+    }
+
+    public void reLife ()
+    {
+        StopFlash();
+        isDead = false;
+        setHidden(false);
+        gameObject.layer = LayerMask.NameToLayer("cat");
+    }
+
+    public void StartFlash()
+    {
+        if (flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashRoutine());
+        }
+    }
+
+    public void StopFlash()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        while (true)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
+            yield return new WaitForSeconds(0.1f);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }
