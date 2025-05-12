@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|c:\\users\\administrator\\desktop\\catrun-yuxuan2\\assets\\scripts\\eatcoin1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eatcoin1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|c:\\users\\administrator\\desktop\\catrun-yuxuan2\\assets\\scripts\\eatcoin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eatcoin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\scripts\\countdowntimer1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\countdowntimer1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\gameovertrigger1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\gameovertrigger1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\scripts\\catmovement1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catmovement1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\scripts\\goaltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\goaltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\scripts\\policemovement1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\policemovement1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67F8CB64-2B54-1B18-C00F-CDBEC7D8EEF2}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\catmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EatCoin1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\EatCoin1.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EatCoin1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\EatCoin1.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EatCoin1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T02:31:39.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameOverTrigger1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\GameOverTrigger1.cs",
+              "RelativeDocumentMoniker": "Assets\\GameOverTrigger1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\GameOverTrigger1.cs",
+              "RelativeToolTip": "Assets\\GameOverTrigger1.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAcwEcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:42:45.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CatMovement1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CatMovement1.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CatMovement1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CatMovement1.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CatMovement1.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAuwNoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:29:45.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GoalTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\GoalTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GoalTrigger.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\GoalTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GoalTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:24:24.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EatCoin.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\EatCoin.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\EatCoin.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\EatCoin.cs",
+              "RelativeToolTip": "Assets\\Scripts\\EatCoin.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAYwA8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:21:21.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PoliceMovement1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\PoliceMovement1.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PoliceMovement1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\PoliceMovement1.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PoliceMovement1.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAADwvyIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:20:35.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CatMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CatMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CatMovement.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CatMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CatMovement.cs",
+              "ViewState": "AgIAAM4AAAAAAAAAAAAjwNwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:16:41.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CountdownTimer1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CountdownTimer1.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CountdownTimer1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\CatRun-Yuxuan2\\Assets\\Scripts\\CountdownTimer1.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CountdownTimer1.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T15:07:24.393Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

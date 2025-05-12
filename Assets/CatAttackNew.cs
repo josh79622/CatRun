@@ -153,15 +153,6 @@ public class CatAttackNew : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("cat");
         target =  GameObject.FindGameObjectWithTag("Player");
     }
-    //private void OnTriggerStay2D(Collider2D other)
-    //{
-    //    if (other.tag == "Bin" || other.tag == "SlowDownBadGuy")
-    //    {
-    //        if (isnew==true)
-    //        {
-    //            Debug.Log("131313");
-    //        }
-    //    }
-    //}
+
 
 }

@@ -25,7 +25,7 @@ public class PoliceMovement1: MonoBehaviour
 
     private Collider2D collidedWall;
 
-    private CatMovement catMovement;
+    private CatMovement1 catMovement;
     private Transform confused;
 
     private SpriteRenderer spriteRenderer;
@@ -38,7 +38,7 @@ public class PoliceMovement1: MonoBehaviour
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         dropControl = this.GetComponent<DropControl>();
-        catMovement = target.GetComponent<CatMovement>();
+        catMovement = target.GetComponent<CatMovement1>();
         confused = transform.parent.Find("Confused");
         confused.gameObject.SetActive(false);
 

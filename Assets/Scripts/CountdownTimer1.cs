@@ -7,7 +7,7 @@ public class CountdownTimer1 : MonoBehaviour
     public Canvas guideline;
     public GameObject player;        // 玩家物件，先暫時禁用
     public Text Timer;
-    public GameOverTrigger gameOverTrigger;
+    public GameOverTrigger1 gameOverTrigger;
     public GoalTrigger goalTrigger;
 
     private float countdown = 3f;
@@ -30,7 +30,7 @@ public class CountdownTimer1 : MonoBehaviour
             CloseGuideline();
             Time.timeScale = 1f;
         }
-
+        
     }
 
     void Update()

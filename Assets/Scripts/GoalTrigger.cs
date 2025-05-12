@@ -44,7 +44,7 @@ public class GoalTrigger : MonoBehaviour
         isWon = true;
 
         GameObject cat = GameObject.FindGameObjectWithTag("Player");
-        GameOverTrigger gameOverTrigger = cat.GetComponent<GameOverTrigger>();
+        GameOverTrigger1 gameOverTrigger = cat.GetComponent<GameOverTrigger1>();
         gameOverTrigger.isActive = false;
 
         virtualCamera.SetActive(false);
