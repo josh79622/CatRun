@@ -65,7 +65,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5521968054634334179}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -992.8, y: -576.9932, z: 8.051826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -193,6 +193,8 @@ MonoBehaviour:
   energyCost: 0.15
   energyGain: 20
   translationSpeed: 8
+  normalGravity: 3
+  waterGravity: 0.5
   jumpForce: 20
 --- !u!114 &5498760578879831120
 MonoBehaviour:
@@ -239,8 +241,7 @@ MonoBehaviour:
   isActive: 1
   hearts:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  initialLifeNumber: 3
   instructionText: {fileID: 0}
 --- !u!58 &3605273824554228367
 CircleCollider2D:
@@ -252,7 +253,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 79c20a287ebaa4169ae3218cd4bdf974, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -390,6 +391,7 @@ MonoBehaviour:
   coinTilemap: {fileID: 0}
   coinTile: {fileID: 11400000, guid: f03445c5b6c144deb9c4bf40be6a1f55, type: 2}
   collectSound: {fileID: 8300000, guid: dc0a5e3d1e94a4a828b79623db4d9600, type: 3}
+  coinCounter: {fileID: 0}
 --- !u!1 &6571176533196690217
 GameObject:
   m_ObjectHideFlags: 0
