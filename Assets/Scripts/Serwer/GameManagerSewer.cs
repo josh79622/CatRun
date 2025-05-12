@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+ï»¿using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+using System.Collections;
+
 using UnityEngine.UI;
 
 public class GameManagerSewer : MonoBehaviour
@@ -13,28 +14,32 @@ public class GameManagerSewer : MonoBehaviour
     public GameObject GameOverText;
 
 
-    public  int i = 0;
-    public GameObject goDoorOne;
+    public GameObject GameMusic;
 
-    public Text keyText;    
+    public int i = 0;
+    public GameObject goDoorOne;
+ 
+
+
+    public Text keyText;
 
     private void Awake()
     {
-        // Èç¹ûÒÑ¾­ÓĞÊµÀı²¢ÇÒ²»ÊÇ×Ô¼º£¬Ïú»Ù×Ô¼º
+        // å¦‚æœå·²ç»æœ‰å®ä¾‹å¹¶ä¸”ä¸æ˜¯è‡ªå·±ï¼Œé”€æ¯è‡ªå·±
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        // ·ñÔòÉèÎªµ±Ç°ÊµÀı£¬²¢¿ÉÑ¡Ôñ²»Ïú»Ù
+        // å¦åˆ™è®¾ä¸ºå½“å‰å®ä¾‹ï¼Œå¹¶å¯é€‰æ‹©ä¸é”€æ¯
         Instance = this;
-      
+
     }
 
     public void AddCount()
     {
-        if (SceneCount <3)
+        if (SceneCount < 3)
         {
             SceneCount++;
         }
@@ -42,30 +47,31 @@ public class GameManagerSewer : MonoBehaviour
 
     public void ReplaceCount()
     {
-        if (SceneCount >0)
+        if (SceneCount > 0)
         {
             SceneCount--;
         }
     }
 
-    // Ê¾Àı·½·¨
+    // ç¤ºä¾‹æ–¹æ³•
     public void DoSomething()
     {
-        Debug.Log("GameManagerSewer ÕıÔÚÔËĞĞÄ³¸öÂß¼­...");
+        Debug.Log("GameManagerSewer æ­£åœ¨è¿è¡ŒæŸä¸ªé€»è¾‘...");
     }
 
     private void Update()
     {
-        if (SceneCount<=0)
+        if (SceneCount <= 0)
         {
             GameOverText.SetActive(true);
             StartCoroutine(enumerator());
         }
-        if (i>=3)
+        if (i >= 3)
         {
             goDoorOne.SetActive(false);
+            GameMusic.gameObject.SetActive(true);
         }
-        keyText.text = "KEY:" + i+ " / 3";
+        keyText.text = "KEY:" + i + " / 3";
     }
 
 
@@ -76,7 +82,6 @@ public class GameManagerSewer : MonoBehaviour
         yield return new WaitForSeconds(3);
         GameOverText.SetActive(false);
         SceneManager.LoadScene("sewer");
-        
+
     }
 }
-

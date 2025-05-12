@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    public AudioClip pickupSound; // 拖入钥匙拾取音效
+    private AudioSource audioSource;
 
-   
-   
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        // 确保有 AudioSource 组件
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-      
+        audioSource.playOnAwake = false; // 不自动播放
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,9 +24,24 @@ public class Key : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManagerSewer.Instance.i++;
-            this.gameObject.SetActive(false);
-           
-        }
 
+            // 播放拾取音效（如有）
+            if (pickupSound != null)
+            {
+                audioSource.PlayOneShot(pickupSound);
+            }
+
+            // 延迟隐藏钥匙，让音效播放完（可选）
+            StartCoroutine(DisableAfterSound());
+        }
+    }
+
+    IEnumerator DisableAfterSound()
+    {
+        // 等待音效播放完
+        float delay = pickupSound != null ? pickupSound.length : 0f;
+        yield return new WaitForSeconds(delay);
+
+        gameObject.SetActive(false);
     }
 }
