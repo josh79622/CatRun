@@ -17939,8 +17939,8 @@ MonoBehaviour:
   guideline: {fileID: 1473360902}
   player: {fileID: 1159058376}
   Timer: {fileID: 1696785225}
-  gameOverTrigger: {fileID: 8655903427414425335}
-  goalTrigger: {fileID: 1937533575}
+  gameOverTrigger1: {fileID: 8655903427414425335}
+  goalTrigger1: {fileID: 1937533577}
   TimeLimit: 180
   isCanMove: 1
 --- !u!1 &1528955705
@@ -23584,8 +23584,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937533576}
-  - component: {fileID: 1937533575}
   - component: {fileID: 1937533574}
+  - component: {fileID: 1937533577}
   m_Layer: 0
   m_Name: WinTrigger
   m_TagString: Untagged
@@ -23639,22 +23639,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 8.363167, y: 37.43959}
   m_EdgeRadius: 0
---- !u!114 &1937533575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937533573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb3181d34f31403db9d8dd6354b7e39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 2135194283}
-  winText: {fileID: 39581373}
-  instructionText: {fileID: 1511048757}
-  Level: 0
 --- !u!4 &1937533576
 Transform:
   m_ObjectHideFlags: 0
@@ -23671,6 +23655,22 @@ Transform:
   - {fileID: 1175200013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1937533577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937533573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1adff60d81a97142b34179def3a7de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 2135194283}
+  winText: {fileID: 39581373}
+  instructionText: {fileID: 1511048757}
+  Level: 0
 --- !u!1 &1955670491
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,8 +7,8 @@ public class CountdownTimer1 : MonoBehaviour
     public Canvas guideline;
     public GameObject player;        // 玩家物件，先暫時禁用
     public Text Timer;
-    public GameOverTrigger1 gameOverTrigger;
-    public GoalTrigger goalTrigger;
+    public GameOverTrigger1 gameOverTrigger1;
+    public GoalTrigger1 goalTrigger1;
 
     private float countdown = 3f;
     public float TimeLimit = 180.0f;
@@ -69,14 +69,14 @@ public class CountdownTimer1 : MonoBehaviour
             }
         }
 
-        if (countdownFinished && !gameOverTrigger.isLost && !goalTrigger.isWon)
+        if (countdownFinished && !gameOverTrigger1.isLost && !goalTrigger1.isWon)
         {
             float usedTime = Time.time - starTime;
             float remainingTime = TimeLimit - usedTime;
 
             if (remainingTime <= 0)
             {
-                gameOverTrigger.Lose();
+                gameOverTrigger1.Lose();
             }
             else
             {

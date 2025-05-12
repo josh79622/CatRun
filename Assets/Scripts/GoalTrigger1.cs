@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-public class GoalTrigger : MonoBehaviour
+public class GoalTrigger1: MonoBehaviour
 {
     public GameObject virtualCamera;        // 虛擬攝影機（讓它停住）
     public Text winText;                    // 顯示 "你贏了！"
@@ -44,7 +44,7 @@ public class GoalTrigger : MonoBehaviour
         isWon = true;
 
         GameObject cat = GameObject.FindGameObjectWithTag("Player");
-        GameOverTrigger gameOverTrigger = cat.GetComponent<GameOverTrigger>();
+        GameOverTrigger1 gameOverTrigger = cat.GetComponent<GameOverTrigger1>();
         gameOverTrigger.isActive = false;
 
         virtualCamera.SetActive(false);
