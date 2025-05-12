@@ -16,6 +16,7 @@ public class EatCoin : MonoBehaviour
     private CatMovement catMovement;
 
     public int remainingCoins { get; private set; } = 0;
+    public int CoinEatenNumber { get; private set; } = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class EatCoin : MonoBehaviour
         remainingCoins = CountRemainingCoins();
         if (coinCounter)
         {
-            coinCounter.text = remainingCoins + " coins remaining.";
+            coinCounter.text = "" + CoinEatenNumber;
         }
     }
 
@@ -41,7 +42,7 @@ public class EatCoin : MonoBehaviour
 
         if (coinCounter)
         {
-            coinCounter.text = remainingCoins + " coins remaining.";
+            coinCounter.text = "" + CoinEatenNumber;
         }
     }
 
@@ -110,6 +111,7 @@ public class EatCoin : MonoBehaviour
                 }
 
                 remainingCoins -= 1;
+                CoinEatenNumber += 1;
             }
         }
     }
@@ -138,6 +140,7 @@ public class EatCoin : MonoBehaviour
                 }
 
                 remainingCoins -= 1;
+                CoinEatenNumber += 1;
             }
         }
     }

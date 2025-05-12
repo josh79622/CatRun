@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,6 +20,8 @@ public class CatMovement : MonoBehaviour
     public bool isDead { get; private set; } = false;
     private bool isUnderWater = false;
     private bool isGrounded;
+    public bool isAllowDoubleJump = false;
+    private bool canDoubleJump = false;
     private Rigidbody2D rb;
     private int status = 0;
     Animator anim;
@@ -73,11 +76,21 @@ public class CatMovement : MonoBehaviour
         rb.velocity = new Vector2(translation, rb.velocity.y);
 
 
+
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isUnderWater))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            //anim.SetTrigger("Jump");
-            isGrounded = false;
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                isGrounded = false;
+                if (isAllowDoubleJump)
+                    canDoubleJump = true;
+            }
+            else if (isAllowDoubleJump && canDoubleJump)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                canDoubleJump = false;
+            }
         }
         if (!isGrounded)
         {
@@ -176,7 +189,7 @@ public class CatMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("fallingWater"))
         {
-            rb.gravityScale = normalGravity * 1.5f;
+            rb.gravityScale = normalGravity * 1.7f;
         }
     }
 
@@ -185,6 +198,17 @@ public class CatMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Water") && rb.drag > 1f)
         {
             rb.drag = 0.8f;
+        }
+        if (other.CompareTag("Apple") && !isDead)
+        {
+            Destroy(other.gameObject);
+            energy.GainEnergy(energyGain);
+        }
+        if (other.CompareTag("extraLife") && !isDead)
+        {
+            Destroy(other.gameObject);
+            GameOverTrigger got = GetComponent<GameOverTrigger>();
+            got.AddHeart();
         }
     }
 

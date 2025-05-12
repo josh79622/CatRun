@@ -19,14 +19,14 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Level == 1)
-            {
-                eatCoin = other.transform.GetComponent<EatCoin>();
-                if (eatCoin.remainingCoins != 0)
-                {
-                    return;
-                }
-            }
+            //if (Level == 1)
+            //{
+            //    eatCoin = other.transform.GetComponent<EatCoin>();
+            //    if (eatCoin.remainingCoins != 0)
+            //    {
+            //        return;
+            //    }
+            //}
             Win();
         }
     }

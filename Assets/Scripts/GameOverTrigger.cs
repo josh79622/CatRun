@@ -64,6 +64,7 @@ public class GameOverTrigger : MonoBehaviour
         if (collision.collider.tag == "BadGuy")
         {
             LoseOneLife();
+            Debug.Log("Åöµ½ÁË£¡£¡£¡£¡£¡£¡");
         }
     }
 
