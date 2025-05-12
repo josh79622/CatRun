@@ -3,6 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LoadMenu();
+        }
+    }
     public void LoadMenu()
     {
         SceneManager.LoadScene("Interface");
