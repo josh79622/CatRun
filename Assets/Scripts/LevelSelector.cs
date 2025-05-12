@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelector : MonoBehaviour
 {
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Interface");
+    }
+
     public void LoadTutorial()
     {
         SceneManager.LoadScene("Tutorial");

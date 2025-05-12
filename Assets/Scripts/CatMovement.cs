@@ -176,7 +176,7 @@ public class CatMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("fallingWater"))
         {
-            rb.gravityScale = normalGravity * 1.5f;
+            rb.gravityScale = normalGravity * 1.7f;
         }
     }
 
@@ -185,6 +185,17 @@ public class CatMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Water") && rb.drag > 1f)
         {
             rb.drag = 0.8f;
+        }
+        if (other.CompareTag("Apple") && !isDead)
+        {
+            Destroy(other.gameObject);
+            energy.GainEnergy(energyGain);
+        }
+        if (other.CompareTag("extraLife") && !isDead)
+        {
+            Destroy(other.gameObject);
+            GameOverTrigger got = GetComponent<GameOverTrigger>();
+            got.AddHeart();
         }
     }
 

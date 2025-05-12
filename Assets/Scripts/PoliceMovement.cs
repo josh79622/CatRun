@@ -75,7 +75,7 @@ public class PoliceMovement : MonoBehaviour
         }
         if (isGoingAfter)
         {
-            if (catMovement.isHiding)
+            if (catMovement.isHiding && isGrounded)
             {
                 confused.gameObject.SetActive(true);
 
