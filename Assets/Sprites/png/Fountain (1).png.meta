@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fountain (1)_0: -2644056721219634299
+      Fountain (1)_1: -5022203094749491134
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hotdog_0: 5843657036778545147
+      hotdog_1: 4834121909853568186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
