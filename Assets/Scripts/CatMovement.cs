@@ -79,18 +79,15 @@ public class CatMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isUnderWater))
         {
-            if (isGrounded)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                isGrounded = false;
-                if (isAllowDoubleJump)
-                    canDoubleJump = true;
-            }
-            else if (isAllowDoubleJump && canDoubleJump)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                canDoubleJump = false;
-            }
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isGrounded = false;
+                //if (isAllowDoubleJump)
+                //    canDoubleJump = true;
+            //else if (isAllowDoubleJump && canDoubleJump)
+            //{
+            //    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            //    canDoubleJump = false;
+            //}
         }
         if (!isGrounded)
         {

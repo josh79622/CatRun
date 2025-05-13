@@ -2422,7 +2422,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.85974, y: -179.46149, z: -10}
+  m_LocalPosition: {x: 147.34973, y: -179.46149, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94383,7 +94383,7 @@ Transform:
   m_GameObject: {fileID: 2135194283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 146.85974, y: -179.46149, z: -10}
+  m_LocalPosition: {x: 147.34973, y: -179.46149, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -94475,6 +94475,10 @@ PrefabInstance:
       propertyPath: waterGravity
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5130602917261864497, guid: 0bd22ec096ac4460ca3ff4d450f88d49, type: 3}
+      propertyPath: isAllowDoubleJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5475877993427361814, guid: 0bd22ec096ac4460ca3ff4d450f88d49, type: 3}
       propertyPath: gameOverText
       value: 
@@ -94505,7 +94509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5777069504705614924, guid: 0bd22ec096ac4460ca3ff4d450f88d49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -847.89
+      value: -847.4
       objectReference: {fileID: 0}
     - target: {fileID: 5777069504705614924, guid: 0bd22ec096ac4460ca3ff4d450f88d49, type: 3}
       propertyPath: m_LocalPosition.y
