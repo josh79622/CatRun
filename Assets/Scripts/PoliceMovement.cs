@@ -7,10 +7,12 @@ public class PoliceMovement : MonoBehaviour
     public GameObject target;
     public float speed = 6;
     public float climbingSpeed = 3.5f;
+
+    public Collider2D patrolArea;
     private float speedUp = 1.0f;
     Animator anim;
 
-    private float jumpForce = 15.0f;
+    public float jumpForce = 15.0f;
     private bool isGrounded;
 
     private Rigidbody2D rb;
@@ -27,6 +29,9 @@ public class PoliceMovement : MonoBehaviour
     private CatMovement catMovement;
     private Transform confused;
 
+    private SpriteRenderer spriteRenderer;
+    private Coroutine flashCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,22 +42,40 @@ public class PoliceMovement : MonoBehaviour
         catMovement = target.GetComponent<CatMovement>();
         confused = transform.parent.Find("Confused");
         confused.gameObject.SetActive(false);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        if (patrolArea && !isTargetInPatrolArea())
+        {
+            rb.velocity = new Vector2(0, 0);
+            anim.SetInteger("Status", 0);
+            return;
+        }
+
+        if (speedUp < 1)
+        {
+            StartFlash();
+        } else
+        {
+            StopFlash();
+        }
+
+        AvoidOtherPolice();
         if (!isGoingAfter)
         {
             Vector2 diff = target.transform.position - transform.position;
             float distance = diff.magnitude;
-            if (distance < 30)
+            if (distance < 40)
             {
                 isGoingAfter = true;
             }
         }
         if (isGoingAfter)
         {
-            if (catMovement.isHiding)
+            if (catMovement.isHiding && isGrounded)
             {
                 confused.gameObject.SetActive(true);
 
@@ -65,11 +88,10 @@ public class PoliceMovement : MonoBehaviour
                 Bounds myBounds = this.GetComponent<Collider2D>().bounds;
 
                 if (collidedWall)
-                Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
+                //Debug.Log("isOnTheWall(target, collidedWall): " + isOnTheWall(target, collidedWall));
 
                 if (collidedWall && isOnTheWall(target, collidedWall))
                 {
-                    Debug.Log("CLIMBIN!");
                     if (myBounds.min.y < collidedWall.bounds.max.y)
                     {
                         isClimbing = true;
@@ -118,7 +140,6 @@ public class PoliceMovement : MonoBehaviour
                     )
                 {
                     Status = 3;
-                    Debug.Log("Player is inside the obstacle!");
                     rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                     isGrounded = false;
                 }
@@ -170,12 +191,37 @@ public class PoliceMovement : MonoBehaviour
         }
         return false;
     }
+
+    public void SpeedJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x / Mathf.Abs(rb.velocity.x) * 12f, jumpForce * 1.2f);
+        isGrounded = false;
+    }
+
+    public void HighJump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x * 0.5f, jumpForce * 1.2f);
+        isGrounded = false;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("SlowDownBadGuy"))
         {
             speedUp = 0.3f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "JumpTrigger")
+        {
+            SpeedJump();
+        }
+
+        if (collision.transform.tag == "HighJumpTrigger")
+        {
+            HighJump();
         }
     }
 
@@ -208,5 +254,57 @@ public class PoliceMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         speedUp = 1f;
+    }
+
+    void AvoidOtherPolice()
+    {
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, 1f, LayerMask.GetMask("police"));
+
+        foreach (Collider2D other in nearby)
+        {
+            if (other.gameObject != this.gameObject)
+            {
+                Vector2 away = (Vector2)(transform.position - other.transform.position);
+                transform.position += (Vector3)(away.normalized * 0.02f); 
+            }
+        }
+    }
+
+    public void StartFlash()
+    {
+        if (flashCoroutine == null)
+        {
+            flashCoroutine = StartCoroutine(FlashRoutine());
+        }
+    }
+
+    public void StopFlash()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        while (true)
+        {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+            yield return new WaitForSeconds(0.2f);
+
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private bool isTargetInPatrolArea ()
+    {
+        Vector3 targetPos = target.transform.position;
+
+        return patrolArea.bounds.Contains(targetPos);
     }
 }
